@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+$object = YamlFrontMatter::parse(file_get_contents('example.md'));
+$object->matter(); // => ['title' => 'Example']
+$object->matter('title'); // => 'Example'
+$object->body(); // => 'Lorem ipsum.'
+$object->title; // => 'Example'
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
