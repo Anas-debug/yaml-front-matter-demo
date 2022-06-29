@@ -14,11 +14,13 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 | contains the "web" middleware group. Now create something great!
 |
 */
-$object = YamlFrontMatter::parse(file_get_contents('example.md'));
+$object = YamlFrontMatter::parse(file_get_contents('example\example.md'));
 $object->matter(); // => ['title' => 'Example']
 $object->matter('title'); // => 'Example'
 $object->body(); // => 'Lorem ipsum.'
 $object->title; // => 'Example'
+
+ddd($object);
 
 
 // Route::get('/', function () {
